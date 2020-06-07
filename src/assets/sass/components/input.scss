@@ -1,0 +1,22 @@
+input[type="text"]{
+  padding: 10px;
+  color: $color-black;
+  border-radius: 5px;
+}
+
+input[type="text"]:focus {
+  padding: 10px;
+  color: $color-black;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+input[type="text"]:focus:hover {
+  padding: 10px;
+  color: $color-black;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+

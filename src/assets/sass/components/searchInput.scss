@@ -1,0 +1,29 @@
+.navbar__container__input {
+  width: 100%;
+  position: relative;
+}
+
+.navbar__input {
+  height: 36px;
+  width: calc(100% - 61px);
+  margin-left: 25px;
+  border: none;
+}
+
+.navbar__button {
+  position: absolute;
+  height: 36px;
+  right: 25px;
+  top: 0;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 40px;
+}
+
+.navbar__button__icon {
+  background-image: url("../../images/search-icon.png");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}

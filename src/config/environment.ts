@@ -1,0 +1,1 @@
+export const URL_DEV = 'http://localhost:5000/api';
