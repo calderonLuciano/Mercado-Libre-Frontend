@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar__container">
-        <img src={logo} alt="Logo de Mercado Libre" />
+        <img className="navbar__img" src={logo} alt="Logo de Mercado Libre" />
         <SearchInput />
       </div>
     </nav>

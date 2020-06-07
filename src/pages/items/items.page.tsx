@@ -1,42 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { ItemService } from '../../services/itemService'
-import { Item } from "../../models/item.model";
+import BreadCrumb from "../../components/breadcrumb.component";
+import CardContainer from "../../components/cardContainer.component";
+import {Item} from '../../models/item.model'
 
 const ItemsPage = () => {
+  const item: Item[] = [];
   const [author, setAuthor] = useState({name: '', lastName: ''});
   const [categories, setCategories] = useState([]);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(item);
+  const [query, setQuery] = useState('');
 
   let { search } = useLocation();
-  const query = new URLSearchParams(search);
+  const queryP = new URLSearchParams(search);
   useEffect(() => {
     
-    const param = query.get("q");
+    const param = queryP.get("q");
+    if (param !== null) {
+      setQuery(param);
+    }
+    
     const itemService = new ItemService();
     if (param !== null) {
       itemService.searchItems(param)
         .then(res => {
-          
           setAuthor( res.results.author );
           setItems( res.results.items );
           setCategories( res.results.categories );
         })
-      
     }
     
   }, [])
 
 
   return (
-    <>
-      <li>Author: {author.name}</li>
-      {items.map((res: Item) => {
-        return (
-          <li key={res.id}>{res.title}</li>
-        )
-      })}
-    </>);
+    <div className="container">
+      <BreadCrumb></BreadCrumb>
+      <div className="container__cards">
+      <CardContainer ></CardContainer>
+      </div>
+      
+    </div>
+  );
 };
 
 export default ItemsPage;

@@ -10,7 +10,10 @@ const SearchInput = () => {
   }
 
   const handleClick = () =>{
-    history.push(`/items?q=${searchInput}`);
+    history.push({
+      pathname: '/items',
+      search: `?q=${searchInput}`
+    })
   }
 
   return (
