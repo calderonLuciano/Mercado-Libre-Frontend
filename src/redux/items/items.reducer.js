@@ -5,27 +5,27 @@ const INITIAL_STATE = {
     categories: [],
     author: {},
     items: [],
-    loaded: false
+    loaded: false,
+    error: {}
   },
   itemSelected: {
-    author: {}, 
+    author: {},
     item: {
-      id: '',
-      title: '',
+      id: "",
+      title: "",
       price: {
-        currency: '',
+        currency: "",
         amount: 0,
-        decimals: 0
+        decimals: 0,
       },
-      picture: '',
-      condition: '',
+      picture: "",
+      condition: "",
       free_shipping: false,
-      location: ''
-
+      location: "",
     },
-    loaded: false
+    loaded: false,
   },
-  error: null,
+  error: "",
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -36,31 +36,98 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         search: search,
-        error: null,
+        error: "",
       };
 
     case ItemsActionTypes.GET_ITEMS_FAILURE:
       return {
         ...state,
-        search: null,
+        search: {
+          categories: [],
+          author: {},
+          items: [],
+          loaded: true,
+          error: action.payload,
+        },
+      };
+
+      case ItemsActionTypes.GET_ITEMS_GLOBAL_FAILURE:
+        return {
+          ...state,
+          search: {
+            categories: [],
+            author: {},
+            items: [],
+            loaded: true,
+            error: "",
+          },
+          error: action.payload
+        };
+    case ItemsActionTypes.GET_ITEM_SUCCESS:
+      const itemSelected = action.payload;
+      itemSelected.loaded = true;
+      return {
+        ...state,
+        itemSelected: itemSelected,
+        error: "",
+      };
+
+    case ItemsActionTypes.GET_ITEM_FAILURE:
+      return {
+        ...state,
+        itemSelected: null,
         error: action.payload,
       };
-      case ItemsActionTypes.GET_ITEM_SUCCESS:
-        const itemSelected = action.payload;
-        itemSelected.loaded = true;
-        return {
-          ...state,
-          itemSelected: itemSelected,
-          error: null,
-        };
-  
-      case ItemsActionTypes.GET_ITEM_FAILURE:
-        return {
-          ...state,
-          itemSelected: null,
-          error: action.payload,
-        };
 
+    case ItemsActionTypes.CLEAN_ITEM_SELECTED:
+      return {
+        ...state,
+        itemSelected: {
+          author: {},
+          item: {
+            id: "",
+            title: "",
+            price: {
+              currency: "",
+              amount: 0,
+              decimals: 0,
+            },
+            picture: "",
+            condition: "",
+            free_shipping: false,
+            location: "",
+          },
+          loaded: false,
+        },
+      };
+    case ItemsActionTypes.CLEAN_ALL:
+      return {
+        ...state,
+        search: {
+          categories: [],
+          author: {},
+          items: [],
+          loaded: false,
+        },
+        itemSelected: {
+          author: {},
+          item: {
+            id: "",
+            title: "",
+            price: {
+              currency: "",
+              amount: 0,
+              decimals: 0,
+            },
+            picture: "",
+            condition: "",
+            free_shipping: false,
+            location: "",
+          },
+          loaded: false,
+        },
+        error: "",
+      };
     default:
       return state;
   }

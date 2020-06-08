@@ -23,8 +23,26 @@ p{
   justify-content: center;
 }
 
+.img-visible {
+  opacity: 1;
+}
+
+.img-hidden {
+  opacity: 0;
+}
+
 @media(min-width: 360px) and (max-width: 640px){
  p{
    font-size: 14px;
  }
+
+ .container {
+  margin: 0 3%;
+ }
+}
+
+@media(max-width: 360px) {
+  .container {
+    margin: 0;
+   }
 }

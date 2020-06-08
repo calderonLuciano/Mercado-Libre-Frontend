@@ -7,6 +7,7 @@ import {
   getItemsFailure,
   getItemSuccess,
   getItemFailure,
+  getItemsGlobalFailure
 } from './items.actions';
 
 import {
@@ -18,13 +19,12 @@ export function* searchItemsSaga(action) {
   try{
     const response = yield itemService.searchItems(action.payload);
     if(response){
-      debugger;
       yield put(getItemsSuccess(response.results));
     }else {
       yield put(getItemsFailure(response.error));
     } 
   } catch (error) {
-    yield put(getItemsFailure(error));
+    yield put(getItemsGlobalFailure(error.message));
   }
 }
 
@@ -37,13 +37,12 @@ export function* getItemSaga(action) {
   try{
     const response = yield itemService.getItemDetail(action.payload);
     if(response){
-      debugger;
       yield put(getItemSuccess(response.results));
     }else {
       yield put(getItemFailure(response.error));
     } 
   } catch (error) {
-    yield put(getItemFailure(error));
+    yield put(getItemsGlobalFailure(error));
   }
 }
 

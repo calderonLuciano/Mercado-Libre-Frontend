@@ -2,7 +2,8 @@ import UiActionTypes from "./ui.types";
 
 const INITIAL_STATE = {
   search: '',
-  page: ''
+  page: '',
+  imageDetailLoaded: false
 };
 
 const uiReducer = (state = INITIAL_STATE, action) => {
@@ -18,6 +19,12 @@ const uiReducer = (state = INITIAL_STATE, action) => {
         ...state,
         page: action.payload,
       };
+
+      case UiActionTypes.CHANGE_IMAGE_DETAIL_LOADED:
+        return {
+          ...state,
+          imageDetailLoaded: action.payload,
+        };
 
     default:
       return state;

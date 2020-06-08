@@ -7,18 +7,24 @@ import CardContainer from "../../components/cardContainer.component";
 import ItemsActionTypes from "../../redux/items/items.types";
 import UiActionTypes from "../../redux/ui/ui.types";
 import { selectIsLoadedItemsSelector } from "../../redux/items/items.selectors";
+import { selectGlobalErrorSelector } from "../../redux/items/items.selectors";
 import Spinner from "../../components/spinner.component";
+import ErrorComponent from "../../components/errorComponent";
 
 const ItemsPage = () => {
   const dispatch = useDispatch();
   let { search } = useLocation();
   const queryP = new URLSearchParams(search);
   const param = queryP.get("q");
+  dispatch({ type: ItemsActionTypes.CLEAN_ITEM_SELECTED });
   dispatch({ type: ItemsActionTypes.GET_ITEMS_START, payload: param });
   dispatch({ type: UiActionTypes.CHANGE_PAGE, payload: "items" });
   const isLoaded = useSelector(selectIsLoadedItemsSelector);
-
-  
+  const globalError = useSelector(selectGlobalErrorSelector);
+  console.log(globalError)
+  if (globalError) {
+    return <ErrorComponent message={globalError} />;
+  } else {
     if (isLoaded) {
       return (
         <div className="container">
@@ -28,10 +34,10 @@ const ItemsPage = () => {
           </div>
         </div>
       );
-    }else {
-      return <Spinner></Spinner>
+    } else {
+      return <Spinner></Spinner>;
     }
-  
+  }
 };
 
 export default ItemsPage;

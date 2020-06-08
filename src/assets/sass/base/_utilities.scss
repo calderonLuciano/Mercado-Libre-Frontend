@@ -5,3 +5,14 @@
   -o-animation: rotating 2s linear infinite;
   animation: rotating 2s linear infinite;
 }
+
+.connect__error{
+  height: 75%;
+  background-image: url(/static/media/error-conexion.0dceb307.jpg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* background-clip: content-box; */
+  background-position-x: center;
+  background-position-y: 50px;
+}

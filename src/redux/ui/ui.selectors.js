@@ -11,3 +11,9 @@ export const selectSearchText = createSelector(
   [selectUi],
   ui => ui.search
 );  
+
+export const selectImageLoadedSelector= createSelector(
+  [selectUi],
+  ui => ui.imageDetailLoaded
+);  
+

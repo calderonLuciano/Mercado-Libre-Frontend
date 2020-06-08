@@ -1,5 +1,13 @@
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../fonts/ProximaNova-Regular.otf'); /* IE9 Compat Modes */
+  font-display: swap
+}
+
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Proxima Nova", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;

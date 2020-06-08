@@ -39,11 +39,10 @@ const SearchInput = () => {
         className="navbar__input"
         placeholder="Nunca dejes de buscar"
         onChange={handleInputChange}
-        defaultValue={searchInput}
         value={searchInput}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={handleClick} className="navbar__button">
+      <button aria-label="nav button" onClick={handleClick} className="navbar__button">
         <div className="navbar__button__icon" role="img"></div>
       </button>
     </div>

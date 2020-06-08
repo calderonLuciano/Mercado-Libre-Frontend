@@ -3,6 +3,16 @@
   margin: 10px 0;
 }
 
+@media(max-width: 360px) {
+  .breadcrumb__container{
+    height: 2rem;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+}
+
+
+
 .breadcrumb__item{
   color: $color-grey;
 }
@@ -15,6 +25,14 @@
   .breadcrumb__container{
     height: 2rem;
     margin: 20px 0;
-    font-size: 14px;
+    
+  }
+ }
+
+ @media(min-width: 640px) and (max-width: 813px){
+  .breadcrumb__container{
+    height: 2rem;
+    margin: 25px 0;
+   
   }
  }

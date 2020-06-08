@@ -33,6 +33,16 @@
   width: 100%;
 }
 
+
+@media(max-width: 360px) {
+  .container__item__texts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
 .container__items__texts__header {
   display: flex;
   flex-direction: row;

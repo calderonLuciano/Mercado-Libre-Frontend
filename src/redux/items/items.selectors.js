@@ -7,9 +7,19 @@ export const selectSearchSelector = createSelector(
   items => items.search
 );  
 
+export const selectGlobalErrorSelector = createSelector(
+  [selectItems],
+  items => items.error
+);  
+
 export const selectCategoriesSelector = createSelector(
   [selectSearchSelector],
   search => search.categories
+);
+
+export const selectErrorItemsSelector = createSelector(
+  [selectSearchSelector],
+  search => search.error
 );
 
 export const selectItemsSelector = createSelector(
