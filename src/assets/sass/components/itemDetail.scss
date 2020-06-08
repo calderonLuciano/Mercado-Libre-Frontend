@@ -10,18 +10,20 @@
   height: 60%;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 20px;
 }
 
 .item__detail__image {
   display: block;
   width: 50%;
   max-height: 300px;
+  border-radius: 5px;
 }
 
 .item__detail__description {
   display: flex;
   flex-direction: column;
-  width: 150px;
+  width: 190px;
 }
 
 .item__detail__condition {

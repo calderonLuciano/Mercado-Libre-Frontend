@@ -7,6 +7,7 @@ const Item = ({item}) => {
   const handleItemClick = (id) =>{
     history.push(`/items/${id}`)
   }
+  console.log(item)
 
   return (
     <div className="container__item" onClick={() => handleItemClick(item.id)}>
@@ -14,7 +15,7 @@ const Item = ({item}) => {
       <div className="container__item__texts">
         <div className="container__items__texts__header">
         <span className="item__price">$ {item.price.amount}</span>
-        <span className="item__location">Capital federal</span>
+        <span className="item__location">{item.location}</span>
         </div>
         <p>{item.title}</p>
         <p>{item.condition}</p>

@@ -1,7 +1,6 @@
 import React from "react";
 
 const ItemDetail = ({ item }) => {
-  console.log(item);
   return (
     <div className="item__detail">
       <div className="item__detail__body">
