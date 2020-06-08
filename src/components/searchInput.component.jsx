@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
+import UiActionTypes from '../redux/ui/ui.types'
+import {selectSearchText} from '../redux/ui/ui.selectors'
 
 const SearchInput = () => {
-  const [searchInput, setSearchInput] = useState("");
+ 
   const history = useHistory();
+  const dispatch = useDispatch();
+  const searchInput = useSelector(selectSearchText);
 
   const handleInputChange = (event) => {
-    setSearchInput(event.target.value);
-    console.log("from", event.target.value);
+    dispatch({type: UiActionTypes.CHANGE_SEARCH, payload: event.target.value})
   };
 
   const handleClick = (event) => {
@@ -36,6 +40,7 @@ const SearchInput = () => {
         placeholder="Nunca dejes de buscar"
         onChange={handleInputChange}
         defaultValue={searchInput}
+        value={searchInput}
         onKeyDown={handleKeyDown}
       />
       <button onClick={handleClick} className="navbar__button">

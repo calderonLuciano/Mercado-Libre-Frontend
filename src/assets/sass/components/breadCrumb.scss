@@ -10,3 +10,11 @@
 .breadcrum__item-bold{
   color: $color-grey-dark;
 }
+
+@media(min-width: 360px) and (max-width: 640px){
+  .breadcrumb__container{
+    height: 2rem;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+ }

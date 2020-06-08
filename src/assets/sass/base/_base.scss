@@ -17,3 +17,14 @@ html, body {
 p{
   margin: 0;
 }
+
+.img__loading {
+  display: flex;
+  justify-content: center;
+}
+
+@media(min-width: 360px) and (max-width: 640px){
+ p{
+   font-size: 14px;
+ }
+}

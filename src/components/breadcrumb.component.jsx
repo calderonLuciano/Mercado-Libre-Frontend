@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import {useSelector} from 'react-redux';
+import {selectCategoriesSelector} from '../redux/items/items.selectors';
 
-const BreadCrumb = ({ categoriesP }) => {
-  
+const BreadCrumb = () => {
+  const categories = useSelector(selectCategoriesSelector);
   let counter = 0;
   return (
     <div className="breadcrumb__container">
-  {categoriesP ?  categoriesP.map(category => {
+  {categories ?  categories.map(category => {
     counter ++;
-    const categoriesLength = categoriesP.length;
+    const categoriesLength = categories.length;
     if(counter !== categoriesLength){
       
      return <span className="breadcrumb__item" key={category}>{category} > </span>

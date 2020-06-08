@@ -1,42 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
-import { ItemService } from "../../services/itemService";
+import { useDispatch, useSelector } from "react-redux";
+
 import BreadCrumb from "../../components/breadcrumb.component";
 import CardContainer from "../../components/cardContainer.component";
+import ItemsActionTypes from "../../redux/items/items.types";
+import UiActionTypes from "../../redux/ui/ui.types";
+import { selectIsLoadedItemsSelector } from "../../redux/items/items.selectors";
+import Spinner from "../../components/spinner.component";
 
-const ItemsPage = (prevProps) => {
-  const [author, setAuthor] = useState({ name: "", lastName: "" });
-  const [categories, setCategories] = useState([]);
-  const [items, setItems] = useState([]);
-  const [query, setQuery] = useState("");
-
+const ItemsPage = () => {
+  const dispatch = useDispatch();
   let { search } = useLocation();
   const queryP = new URLSearchParams(search);
   const param = queryP.get("q");
+  dispatch({ type: ItemsActionTypes.GET_ITEMS_START, payload: param });
+  dispatch({ type: UiActionTypes.CHANGE_PAGE, payload: "items" });
+  const isLoaded = useSelector(selectIsLoadedItemsSelector);
 
-  const fetchData = async () => {
-    //setQuery(param);
-
-    const itemService = new ItemService();
-    itemService.searchItems(param).then((res) => {
-      setAuthor(res.results.author);
-      setItems(res.results.items);
-      setCategories(res.results.categories);
-    });
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [param]);
-
-  return (
-    <div className="container">
-      <BreadCrumb categoriesP={categories}></BreadCrumb>
-      <div className="container__cards">
-        <CardContainer items={items}></CardContainer>
-      </div>
-    </div>
-  );
+  
+    if (isLoaded) {
+      return (
+        <div className="container">
+          <BreadCrumb></BreadCrumb>
+          <div className="container__cards">
+            <CardContainer></CardContainer>
+          </div>
+        </div>
+      );
+    }else {
+      return <Spinner></Spinner>
+    }
+  
 };
 
 export default ItemsPage;

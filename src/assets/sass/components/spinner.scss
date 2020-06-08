@@ -1,0 +1,11 @@
+.container--spinner{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.spinner__text {
+  color: $color-black;
+}

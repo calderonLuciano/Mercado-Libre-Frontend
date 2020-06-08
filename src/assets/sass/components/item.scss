@@ -4,9 +4,8 @@
   width: 100%;
   display: flex;
   border-bottom: 1px solid $color-light-grey;
-  transition: box-shadow .3s;
+  transition: box-shadow 0.3s;
   margin-bottom: 10px;
- 
 
   &:hover {
     background-color: $color-white;
@@ -16,7 +15,7 @@
     margin-bottom: 10px;
     border-radius: 5px;
     border-bottom: 1px solid $color-light-grey;
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
     cursor: pointer;
   }
 }
@@ -42,10 +41,18 @@
 
 .item__price {
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-black;
 }
 
 .item__location {
   color: $color-light-grey;
   margin-top: 10px;
   margin-right: 10px;
+}
+
+.item__img__shipping{
+  margin-left: 5px;
 }

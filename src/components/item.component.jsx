@@ -1,28 +1,31 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
+import React from "react";
+import { useHistory } from "react-router-dom";
+import imageShipping from "../assets/images/ic_shipping.png";
 
-const Item = ({item}) => {
+const Item = ({ item }) => {
   const history = useHistory();
 
-  const handleItemClick = (id) =>{
-    history.push(`/items/${id}`)
-  }
-  console.log(item)
+  const handleItemClick = (id) => {
+    history.push(`/items/${id}`);
+  };
 
   return (
     <div className="container__item" onClick={() => handleItemClick(item.id)}>
       <img className="item__image" src={item.picture} alt="imagen"></img>
       <div className="container__item__texts">
         <div className="container__items__texts__header">
-        <span className="item__price">$ {item.price.amount}</span>
-        <span className="item__location">{item.location}</span>
+          <div className="item__price">
+            $ {item.price.amount}
+            {item.free_shipping ? <img className="item__img__shipping" src={imageShipping} alt="free shipping"></img> : <> </>}
+          </div>
+          <span className="item__location">{item.location}</span>
         </div>
         <p>{item.title}</p>
-        <p>{item.condition}</p>
+        <p>Completo Único!</p>
       </div>
       <br />
     </div>
-  )
-}
+  );
+};
 
-export default Item
+export default Item;

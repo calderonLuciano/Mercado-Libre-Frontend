@@ -1,34 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import { ItemService } from "../../services/itemService";
 import BreadCrumb from "../../components/breadcrumb.component";
 import CardContainer from "../../components/cardContainer.component";
+import {useDispatch, useSelector} from 'react-redux';
+import ItemsActionTypes from '../../redux/items/items.types';
+import UiActionTypes from '../../redux/ui/ui.types';
+import { selectIsLoadedItemSelector } from "../../redux/items/items.selectors";
+import Spinner from "../../components/spinner.component";
 
 const ItemDetailPage = () => {
   const { id } = useParams();
-  const [author, setAuthor] = useState({ name: "", lastName: "" });
-  const [item, setItem] = useState(null);
+  const dispatch = useDispatch();
+  dispatch({type: ItemsActionTypes.GET_ITEM_START, payload: id});
+  dispatch({type: UiActionTypes.CHANGE_PAGE, payload: 'detail'});
+  const isLoaded = useSelector(selectIsLoadedItemSelector);
 
-  const fetchData = async () => {
-    const itemService = new ItemService();
-    itemService.getItemDetail(id).then((res) => {
-      setAuthor(res.results.author);
-      setItem(res.results.item);
-    });
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [id]);
-
-  return (
-    
-    <div className="container">
-    <BreadCrumb></BreadCrumb>
-    <div className="container__card__detail">
-    <CardContainer width={85} item={item}></CardContainer>
-  </div>
-    </div>);
+  if(isLoaded){
+    return (
+      <div className="container">
+      <BreadCrumb></BreadCrumb>
+      <div className="container__card__detail">
+      <CardContainer></CardContainer>
+    </div>
+      </div>);
+  } else {
+    return <Spinner></Spinner>
+  }
+  
 };
 
 export default ItemDetailPage;
