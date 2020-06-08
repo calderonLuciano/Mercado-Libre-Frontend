@@ -1,5 +1,12 @@
 .breadcrumb__container{
   height: 2rem;
-  background-color: red;
   margin: 10px 0;
+}
+
+.breadcrumb__item{
+  color: $color-grey;
+}
+
+.breadcrum__item-bold{
+  color: $color-grey-dark;
 }

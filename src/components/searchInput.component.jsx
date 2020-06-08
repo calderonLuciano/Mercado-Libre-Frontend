@@ -5,11 +5,13 @@ const SearchInput = () => {
   const [searchInput, setSearchInput] = useState('');
   const history = useHistory();
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
+  const handleInputChange = (event) =>{
     setSearchInput(event.target.value);
+    console.log('from', event.target.value)
   }
 
-  const handleClick = () =>{
+  const handleClick = (event) =>{
+    event.preventDefault();
     history.push({
       pathname: '/items',
       search: `?q=${searchInput}`
