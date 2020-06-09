@@ -1,17 +1,16 @@
-import UiActionTypes from './ui.types';
+import UiActionTypes from "./ui.types";
 
-
-export const changePage = ( page ) => ({
+export const changePage = (page) => ({
   type: UiActionTypes.CHANGE_PAGE,
-  payload:  page 
+  payload: page,
 });
 
-export const changeSearch = ( text ) => ({
+export const changeSearch = (text) => ({
   type: UiActionTypes.CHANGE_SEARCH,
-  payload: text 
+  payload: text,
 });
 
-export const changeImageDetailLoaded = ( value ) => ({
+export const changeImageDetailLoaded = (value) => ({
   type: UiActionTypes.CHANGE_IMAGE_DETAIL_LOADED,
-  payload: value
+  payload: value,
 });

@@ -1,9 +1,9 @@
 import UiActionTypes from "./ui.types";
 
 const INITIAL_STATE = {
-  search: '',
-  page: '',
-  imageDetailLoaded: false
+  search: "",
+  page: "",
+  imageDetailLoaded: false,
 };
 
 const uiReducer = (state = INITIAL_STATE, action) => {
@@ -11,7 +11,7 @@ const uiReducer = (state = INITIAL_STATE, action) => {
     case UiActionTypes.CHANGE_SEARCH:
       return {
         ...state,
-        search: action.payload
+        search: action.payload,
       };
 
     case UiActionTypes.CHANGE_PAGE:
@@ -20,11 +20,11 @@ const uiReducer = (state = INITIAL_STATE, action) => {
         page: action.payload,
       };
 
-      case UiActionTypes.CHANGE_IMAGE_DETAIL_LOADED:
-        return {
-          ...state,
-          imageDetailLoaded: action.payload,
-        };
+    case UiActionTypes.CHANGE_IMAGE_DETAIL_LOADED:
+      return {
+        ...state,
+        imageDetailLoaded: action.payload,
+      };
 
     default:
       return state;

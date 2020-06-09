@@ -1,58 +1,58 @@
-import { createSelector } from 'reselect';
+import { createSelector } from "reselect";
 
-const selectItems = state => state.application;
+const selectItems = (state) => state.application;
 
 export const selectSearchSelector = createSelector(
   [selectItems],
-  items => items.search
-);  
+  (items) => items.search
+);
 
 export const selectGlobalErrorSelector = createSelector(
   [selectItems],
-  items => items.error
-);  
+  (items) => items.error
+);
 
 export const selectCategoriesSelector = createSelector(
   [selectSearchSelector],
-  search => search.categories
+  (search) => search.categories
 );
 
 export const selectErrorItemsSelector = createSelector(
   [selectSearchSelector],
-  search => search.error
+  (search) => search.error
 );
 
 export const selectItemsSelector = createSelector(
   [selectSearchSelector],
-  search => search.items
+  (search) => search.items
 );
 
 export const selectIsLoadedItemsSelector = createSelector(
   [selectSearchSelector],
-  search => search.loaded
+  (search) => search.loaded
 );
 
 export const selectItemSelectedSelector = createSelector(
   [selectItems],
-  selected => selected.itemSelected
+  (selected) => selected.itemSelected
 );
 
 export const selectItemSelector = createSelector(
   [selectItemSelectedSelector],
-  selected => selected.item
+  (selected) => selected.item
 );
 
 export const selectIsLoadedItemSelector = createSelector(
   [selectItemSelectedSelector],
-  selected => selected.loaded
+  (selected) => selected.loaded
 );
 
 export const selectErrorItemSelector = createSelector(
   [selectItemSelectedSelector],
-  selected => selected.error
+  (selected) => selected.error
 );
 
 export const selectAuthorSelector = createSelector(
   [selectSearchSelector],
-  search => search.author
+  (search) => search.author
 );

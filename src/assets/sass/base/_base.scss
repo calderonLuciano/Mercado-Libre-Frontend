@@ -1,20 +1,21 @@
 body {
-    background-color: $color-background;
+  background-color: $color-background;
 }
 
-html, body {
-    height: 100vh;
+html,
+body {
+  height: 100vh;
 }
 
 ::placeholder {
   color: $color-light-grey;
 }
 
-.container{
+.container {
   margin: 0 14%;
 }
 
-p{
+p {
   margin: 0;
 }
 
@@ -31,18 +32,18 @@ p{
   opacity: 0;
 }
 
-@media(min-width: 360px) and (max-width: 640px){
- p{
-   font-size: 14px;
- }
+@media (min-width: 360px) and (max-width: 640px) {
+  p {
+    font-size: 14px;
+  }
 
- .container {
-  margin: 0 3%;
- }
+  .container {
+    margin: 0 3%;
+  }
 }
 
-@media(max-width: 360px) {
+@media (max-width: 360px) {
   .container {
     margin: 0;
-   }
+  }
 }

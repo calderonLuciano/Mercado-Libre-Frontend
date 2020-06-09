@@ -6,7 +6,7 @@ const INITIAL_STATE = {
     author: {},
     items: [],
     loaded: false,
-    error: ""
+    error: "",
   },
   itemSelected: {
     author: {},
@@ -24,7 +24,7 @@ const INITIAL_STATE = {
       location: "",
     },
     loaded: false,
-    error: ""
+    error: "",
   },
   error: "",
 };
@@ -52,18 +52,18 @@ const userReducer = (state = INITIAL_STATE, action) => {
         },
       };
 
-      case ItemsActionTypes.GET_ITEMS_GLOBAL_FAILURE:
-        return {
-          ...state,
-          search: {
-            categories: [],
-            author: {},
-            items: [],
-            loaded: true,
-            error: "",
-          },
-          error: action.payload
-        };
+    case ItemsActionTypes.GET_ITEMS_GLOBAL_FAILURE:
+      return {
+        ...state,
+        search: {
+          categories: [],
+          author: {},
+          items: [],
+          loaded: true,
+          error: "",
+        },
+        error: action.payload,
+      };
     case ItemsActionTypes.GET_ITEM_SUCCESS:
       const itemSelected = action.payload;
       itemSelected.loaded = true;
@@ -92,7 +92,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
             location: "",
           },
           loaded: true,
-          error: action.payload
+          error: action.payload,
         },
       };
 

@@ -7,7 +7,10 @@ import ItemsActionTypes from "../../redux/items/items.types";
 import UiActionTypes from "../../redux/ui/ui.types";
 import { selectIsLoadedItemSelector } from "../../redux/items/items.selectors";
 import Spinner from "../../components/spinner.component";
-import { selectGlobalErrorSelector, selectErrorItemSelector } from "../../redux/items/items.selectors";
+import {
+  selectGlobalErrorSelector,
+  selectErrorItemSelector,
+} from "../../redux/items/items.selectors";
 import ErrorComponent from "../../components/errorComponent";
 
 const ItemDetailPage = () => {
@@ -18,11 +21,18 @@ const ItemDetailPage = () => {
   const itemError = useSelector(selectErrorItemSelector);
 
   if (globalError) {
-    return <ErrorComponent type="global" message= "Ups... el servidor no esta disponible"/>;
+    return (
+      <ErrorComponent
+        type="global"
+        message="Ups... el servidor no esta disponible"
+      />
+    );
   }
 
-  if(itemError){
-    return <ErrorComponent type="404" message= "El item solicitado no es válido"/>;
+  if (itemError) {
+    return (
+      <ErrorComponent type="404" message="El item solicitado no es válido" />
+    );
   }
 
   if (id) {
@@ -40,7 +50,7 @@ const ItemDetailPage = () => {
     } else {
       return <Spinner></Spinner>;
     }
-  }else return <div> No se encontraron resultados </div>
+  } else return <div> No se encontraron resultados </div>;
 };
 
 export default ItemDetailPage;

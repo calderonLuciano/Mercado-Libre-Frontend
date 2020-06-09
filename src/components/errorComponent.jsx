@@ -8,11 +8,23 @@ function ErrorComponent({ type, message }) {
       <h1 style={{ textAlign: "center" }}>{message}</h1>
       {console.log(type)}
       {type === "global" ? (
-        <img className="error__container__img--404" src={global} alt="Error del servidor"></img>
+        <img
+          className="error__container__img"
+          src={global}
+          alt="Error del servidor"
+        ></img>
       ) : type === "empty" ? (
-        <img className="error__container__img--404" src={empty} alt="No hay resultados disponibles"></img>
+        <img
+          className="error__container__img"
+          src={empty}
+          alt="No hay resultados disponibles"
+        ></img>
       ) : (
-        <img className="error__container__img--404" src={notFound} alt="Recurso solicitado no existente"></img>
+        <img
+          className="error__container__img"
+          src={notFound}
+          alt="Recurso solicitado no existente"
+        ></img>
       )}
     </div>
   );

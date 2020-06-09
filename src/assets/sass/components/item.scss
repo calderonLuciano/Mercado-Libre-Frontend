@@ -33,8 +33,7 @@
   width: 100%;
 }
 
-
-@media(max-width: 360px) {
+@media (max-width: 360px) {
   .container__item__texts {
     display: flex;
     flex-direction: column;
@@ -63,6 +62,6 @@
   margin-right: 10px;
 }
 
-.item__img__shipping{
+.item__img__shipping {
   margin-left: 5px;
 }

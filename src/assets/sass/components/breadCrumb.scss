@@ -1,38 +1,34 @@
-.breadcrumb__container{
+.breadcrumb__container {
   height: 2rem;
   margin: 10px 0;
 }
 
-@media(max-width: 360px) {
-  .breadcrumb__container{
+@media (max-width: 360px) {
+  .breadcrumb__container {
     height: 2rem;
     margin: 16px 0;
     font-size: 14px;
   }
 }
 
-
-
-.breadcrumb__item{
+.breadcrumb__item {
   color: $color-grey;
 }
 
-.breadcrum__item-bold{
+.breadcrum__item-bold {
   color: $color-grey-dark;
 }
 
-@media(min-width: 360px) and (max-width: 640px){
-  .breadcrumb__container{
+@media (min-width: 360px) and (max-width: 640px) {
+  .breadcrumb__container {
     height: 2rem;
     margin: 20px 0;
-    
   }
- }
+}
 
- @media(min-width: 640px) and (max-width: 813px){
-  .breadcrumb__container{
+@media (min-width: 640px) and (max-width: 813px) {
+  .breadcrumb__container {
     height: 2rem;
     margin: 25px 0;
-   
   }
- }
+}

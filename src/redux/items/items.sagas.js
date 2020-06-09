@@ -41,7 +41,6 @@ export function* getItemSaga(action) {
     }
   } catch (error) {
     yield put(getItemsGlobalFailure(error.message));
-    console.log(error);
   }
 }
 
