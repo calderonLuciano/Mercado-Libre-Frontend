@@ -47,6 +47,11 @@ export const selectIsLoadedItemSelector = createSelector(
   selected => selected.loaded
 );
 
+export const selectErrorItemSelector = createSelector(
+  [selectItemSelectedSelector],
+  selected => selected.error
+);
+
 export const selectAuthorSelector = createSelector(
   [selectSearchSelector],
   search => search.author

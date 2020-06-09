@@ -7,16 +7,22 @@ import ItemsActionTypes from "../../redux/items/items.types";
 import UiActionTypes from "../../redux/ui/ui.types";
 import { selectIsLoadedItemSelector } from "../../redux/items/items.selectors";
 import Spinner from "../../components/spinner.component";
-import { selectGlobalErrorSelector } from "../../redux/items/items.selectors";
+import { selectGlobalErrorSelector, selectErrorItemSelector } from "../../redux/items/items.selectors";
 import ErrorComponent from "../../components/errorComponent";
+
 const ItemDetailPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const isLoaded = useSelector(selectIsLoadedItemSelector);
   const globalError = useSelector(selectGlobalErrorSelector);
+  const itemError = useSelector(selectErrorItemSelector);
 
   if (globalError) {
-    return <ErrorComponent />;
+    return <ErrorComponent type="global" message= "Ups... el servidor no esta disponible"/>;
+  }
+
+  if(itemError){
+    return <ErrorComponent type="404" message= "El item solicitado no es válido"/>;
   }
 
   if (id) {

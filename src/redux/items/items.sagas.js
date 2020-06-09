@@ -1,28 +1,26 @@
-import { takeLatest, put, all, call } from 'redux-saga/effects';
+import { takeLatest, put, all, call } from "redux-saga/effects";
 
-import ItemsActionTypes from './items.types';
+import ItemsActionTypes from "./items.types";
 
 import {
   getItemsSuccess,
   getItemsFailure,
   getItemSuccess,
   getItemFailure,
-  getItemsGlobalFailure
-} from './items.actions';
+  getItemsGlobalFailure,
+} from "./items.actions";
 
-import {
-  ItemService
-} from '../../services/itemService';
+import { ItemService } from "../../services/itemService";
 
 export function* searchItemsSaga(action) {
   const itemService = new ItemService();
-  try{
+  try {
     const response = yield itemService.searchItems(action.payload);
-    if(response){
+    if (response) {
       yield put(getItemsSuccess(response.results));
-    }else {
+    } else {
       yield put(getItemsFailure(response.error));
-    } 
+    }
   } catch (error) {
     yield put(getItemsGlobalFailure(error.message));
   }
@@ -34,15 +32,16 @@ export function* onGetItemsStart() {
 
 export function* getItemSaga(action) {
   const itemService = new ItemService();
-  try{
+  try {
     const response = yield itemService.getItemDetail(action.payload);
-    if(response){
+    if (response.ok) {
       yield put(getItemSuccess(response.results));
-    }else {
+    } else {
       yield put(getItemFailure(response.error));
-    } 
+    }
   } catch (error) {
-    yield put(getItemsGlobalFailure(error));
+    yield put(getItemsGlobalFailure(error.message));
+    console.log(error);
   }
 }
 
@@ -51,8 +50,5 @@ export function* onGetItemStart() {
 }
 
 export function* itemsSagas() {
-  yield all([
-    call(onGetItemsStart),
-    call(onGetItemStart)
-  ]);
+  yield all([call(onGetItemsStart), call(onGetItemStart)]);
 }

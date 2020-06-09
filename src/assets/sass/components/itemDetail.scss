@@ -19,8 +19,6 @@
   border-radius: 5px;
 }
 
-
-
 .item__detail__description {
   width: 22%;
 }
@@ -30,7 +28,7 @@
 }
 
 .item__detail__title {
-  font-size: 18px;
+  font-size: 21px;
   color: $color-black;
   line-height: 1.3;
   font-weight: 600;
@@ -40,7 +38,7 @@
 }
 
 .item__detail__price {
-  font-size: 30px;
+  font-size: 37px;
   color: $color-black;
   line-height: 1.3;
   overflow: hidden;
@@ -49,15 +47,11 @@
 }
 .item__detail__price-decimals {
   font-size: 16px;
-  color: $color-black;
+  color: #333333;
   line-height: 1.3;
-  font-weight: 600;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin: 0 0 16px 0;
-  text-align: center;
   position: absolute;
   margin-left: 3px;
+  margin-top: 10px;
 }
 
 .item__detail__button {
@@ -66,7 +60,7 @@
   color: white;
   padding: 6px;
   width: 100%;
-  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 
   &:hover {
     background-color: rgba($color-blue-light, $alpha: 0.8);
@@ -74,10 +68,9 @@
     color: white;
     padding: 6px;
     width: 100%;
-    
   }
 
-  &:focus{
+  &:focus {
     background-color: $color-blue-light;
     border-radius: 5px;
     color: white;
@@ -117,8 +110,6 @@
 }
 
 @media (min-width: 813px) and (max-width: 914px) {
-
-
   .item__detail__image {
     display: block;
     max-height: 250px;
@@ -131,8 +122,6 @@
 }
 
 @media (min-width: 678px) and (max-width: 813px) {
-
-
   .item__detail__image {
     display: block;
     max-height: 200px;
@@ -155,8 +144,6 @@
 }
 
 @media (min-width: 640px) and (max-width: 678px) {
-
-
   .item__detail__image {
     display: block;
     max-height: 200px;
@@ -179,8 +166,6 @@
 }
 
 @media (min-width: 300px) and (max-width: 358px) {
-
-
   .item__detail__image {
     display: block;
     max-height: 123px;
@@ -225,8 +210,6 @@
 }
 
 @media (min-width: 359px) and (max-width: 640px) {
-
-
   .item__detail__image {
     display: block;
     max-height: 123px;

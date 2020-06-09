@@ -6,7 +6,7 @@ const INITIAL_STATE = {
     author: {},
     items: [],
     loaded: false,
-    error: {}
+    error: ""
   },
   itemSelected: {
     author: {},
@@ -24,6 +24,7 @@ const INITIAL_STATE = {
       location: "",
     },
     loaded: false,
+    error: ""
   },
   error: "",
 };
@@ -75,8 +76,24 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case ItemsActionTypes.GET_ITEM_FAILURE:
       return {
         ...state,
-        itemSelected: null,
-        error: action.payload,
+        itemSelected: {
+          author: {},
+          item: {
+            id: "",
+            title: "",
+            price: {
+              currency: "",
+              amount: 0,
+              decimals: 0,
+            },
+            picture: "",
+            condition: "",
+            free_shipping: false,
+            location: "",
+          },
+          loaded: true,
+          error: action.payload
+        },
       };
 
     case ItemsActionTypes.CLEAN_ITEM_SELECTED:

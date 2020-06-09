@@ -21,9 +21,9 @@ const ItemsPage = () => {
   dispatch({ type: UiActionTypes.CHANGE_PAGE, payload: "items" });
   const isLoaded = useSelector(selectIsLoadedItemsSelector);
   const globalError = useSelector(selectGlobalErrorSelector);
-  console.log(globalError)
+  
   if (globalError) {
-    return <ErrorComponent message={globalError} />;
+    return <ErrorComponent type='global' message="Ups... el servidor no esta disponible" />;
   } else {
     if (isLoaded) {
       return (

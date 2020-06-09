@@ -5,6 +5,7 @@ import {useSelector} from 'react-redux';
 import {selectItemsSelector} from '../redux/items/items.selectors';
 import {selectActualPage} from '../redux/ui/ui.selectors';
 import NoContent from "./noContent";
+import ErrorComponent from "./errorComponent";
 
 const CardContainer = () => {
   const items = useSelector(selectItemsSelector);
@@ -12,7 +13,7 @@ const CardContainer = () => {
   const actualPage = useSelector(selectActualPage);
   return (
     <div className="card">
-    {!items ? <NoContent></NoContent>
+    {!items ? <ErrorComponent type="empty" message="No encontramos lo que buscabas..." />
     :
     actualPage === 'items' ?  
     items?.map((itemP) => {
